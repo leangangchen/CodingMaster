@@ -3,7 +3,7 @@ SETCHAR EQU 0X07
 VIDEOMEM EQU 0XB800
 STRINGLEN EQU 0XFFFF 
 
-section code align=16 vstart=0x7c00    
+section code align=16 vstart=0x7c00 ;nasm软件支持这种代码分段的操作
         ;align=n    ;表示以n字节对齐，n=16/32
                         ;vstart=addr    ;表示段汇编内 地址的开始点
     mov si, SayHello

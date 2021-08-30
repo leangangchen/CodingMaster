@@ -4,8 +4,8 @@ VIDEOMEM EQU 0XB800
 STRINGLEN EQU 0XFFFF 
 
 section code align=16 vstart=0x7c00 ;nasm软件支持这种代码分段的操作
-        ;align=n    ;表示以n字节对齐，n=16/32
-                        ;vstart=addr    ;表示段汇编内 地址的开始点
+            ;align=n    ;表示以n字节对齐，n=16/32
+            ;vstart=addr    ;表示段内的偏移地址的基准地址
     mov si, SayHello
     xor di, di  ;相当于清除di
     call PrintString
@@ -30,7 +30,7 @@ PrintString:
     inc di
     xor bl, STRINGTAIL     ;是否是字符串结束   
     jz .return
-    loop .printchar
+    loop .printchar ;每运行一次loop，相当于①cx-1; ②判断cx是否等于0，是则不执行跳转，进行下一行指令
     .return:
     ret 
 

@@ -1,3 +1,4 @@
 TEST/
-*bin
-*lst
+*test.*
+*.bin
+*.lst
